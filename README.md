@@ -33,23 +33,11 @@ In the EIP-1967 pattern:
 3. **Storage Slot**: The implementation address is stored in a specific storage slot defined by EIP-1967 to prevent storage collisions.
 
 ## ✅ Advantages:
+
 **Upgradeability**
 **Modular and reusable code**
 **Compatible with tools like OpenZeppelin**
 
-## 🛠️ Project Structure
-
-UpgradeableSmartContract/
-├── contracts/
-│   ├── LogicContract.sol
-│   └── Proxy.sol
-├── scripts/
-│   └── deploy.js
-├── test/
-│   └── proxy.test.js
-├── hardhat.config.js
-├── package.json
-└── README.md
 
 ## 📄 Contracts
 
@@ -91,7 +79,7 @@ A simple proxy contract that holds a delegatecall
     npx hardhat run scripts/deploy.js
     ```
 
-## Testing
+## Testing:
     ```bash
     npx hardhat test
     ```
