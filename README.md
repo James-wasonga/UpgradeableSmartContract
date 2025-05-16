@@ -79,7 +79,7 @@ A simple proxy contract that holds a delegatecall
     npx hardhat run scripts/deploy.js
     ```
 
-## Testing:
+4. Testing:
     ```bash
     npx hardhat test
     ```
