@@ -23,10 +23,76 @@ EIP-1967 is an Ethereum Improvement Proposal that specifies standard storage slo
 - **Upgradeability:**: Allows the logic of a contract to be upgraded without altering its address or disrupting its state.
 - **Compatibility**: Enhances compatibility with tools and services that interact with smart contracts by providing predictable storage layouts.
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+### How It Works
+In the EIP-1967 pattern:
+
+1. **Proxy Contract**: Delegates calls to an implementation contract using delegatecall. It holds the state and the address of the implementation contract.
+
+2. **Implementation Contract**: Contains the logic to be executed. It does not hold any state.
+
+3. **Storage Slot**: The implementation address is stored in a specific storage slot defined by EIP-1967 to prevent storage collisions.
+
+## ✅ Advantages:
+**Upgradeability**
+**Modular and reusable code**
+**Compatible with tools like OpenZeppelin**
+
+## 🛠️ Project Structure
+
+UpgradeableSmartContract/
+├── contracts/
+│   ├── LogicContract.sol
+│   └── Proxy.sol
+├── scripts/
+│   └── deploy.js
+├── test/
+│   └── proxy.test.js
+├── hardhat.config.js
+├── package.json
+└── README.md
+
+## 📄 Contracts
+
+### LogicContract.sol
+A simple contract that allows setting and retrieving a ```uint256``` value.
+
+### Proxy.sol
+A simple proxy contract that holds a delegatecall
+
+## Deployment
+### Prerequisites
+
+**Node.js and npm installed**.
+**Hardhat installed globally or as a dev dependency**.
+
+### steps
+
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/James-wasonga/UpgradeableSmartContract.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd UpgradeableSmartContract
+   ```
+
+3. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Compile contracts:
+    ```bash
+    npx hardhat compile
+    ```
+3. Deploy Contracts:
+    ```bash
+    npx hardhat run scripts/deploy.js
+    ```
+
+## Testing
+    ```bash
+    npx hardhat test
+    ```
+
